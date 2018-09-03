@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:background="#ffffff"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="30dp"
+            android:textColor="#fc22"
+            android:layout_marginTop="30dp"
+            android:text="Register Account"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/register_matricule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:background="@drawable/round_corners"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:hint="Matricule Number"/>
+
+        <EditText
+            android:id="@+id/register_firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:background="@drawable/round_corners"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:hint="First name"/>
+
+        <EditText
+            android:id="@+id/register_lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:background="@drawable/round_corners"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:hint="Last name"/>
+
+        <EditText
+            android:id="@+id/register_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="Mobile number"
+            android:background="@drawable/round_corners"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            />
+
+
+        <Spinner
+            android:id="@+id/programme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Programme"
+            android:background="@drawable/round_corners"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            />
+        <Spinner
+            android:id="@+id/level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Level"
+            android:background="@drawable/round_corners"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:layout_margin="20dp"
+            android:onClick="RegisterStudent"
+            android:layout_gravity="bottom"
+            android:background="#80B9"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+</ScrollView>

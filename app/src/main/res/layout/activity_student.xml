@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#009ACD"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/student_text"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="40dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="70dp"/>
+
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:layout_margin="20dp"
+            android:onClick="registerStudent"
+            android:layout_gravity="bottom"
+            android:background="#80B9"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/attendance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/attendance"
+            android:layout_margin="20dp"
+            android:onClick="takeAttendance"
+            android:layout_gravity="bottom"
+            android:background="#2980B9"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/view_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_record"
+            android:layout_margin="20dp"
+            android:onClick="showRecords"
+            android:layout_gravity="bottom"
+            android:background="#C71585"
+            android:textColor="#ffffff" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

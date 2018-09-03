@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Ub Attendance</string>
+    <string name="get_started">GET STARTED</string>
+
+    <string name="platform_name">Ub Attendance Platform</string>
+    <string name="platform_description">Attendance recording plartform</string>
+    <string name="title_activity_student_lecturer_login">StudentLecturerLogin</string>
+
+    <string name="login_Account">Login to account</string>
+    <string name="student_text">Student View Text</string>
+    <string name="lecturer_text">Lecturer View Text</string>
+    <string name="student">Student</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+    <string name="more">More</string>
+    <string name="logout">Logout</string>
+    <string name="title_settings">More</string>
+    <string name="help_and_about">Help and About</string>
+    <string name="lecturer">Lecturer</string>
+    <string name="register">Register</string>
+    <string name="attendance">Take Attendance</string>
+    <string name="view_record">View Attendance Record</string>
+    <string name="title_activity_student">Student</string>
+    <string name="title_activity_lecturer">Lecturer</string>
+
+    <string name="ub_website">www.ubuea.cm</string>
+    <string name="email_ub_attendance">contact@ubuea.com</string>
+    <string name="phone_ub_attendance">+237 672179981</string>
+
+    <string name="password_hint">Password</string>
+    <string name="username_hint">Username</string>
+    <string name="login">Login</string>
+    <string name="title_activity_student_register">StudentRegister</string>
+
+
+    <string name="help_info">
+        Contact us incase you have any issues by email or by phone at +237 663 60 60 60.
+        More can be found on our official website by clicking on the link below.
+    </string>
+
+
+    <string name="invite_info">
+    Hi there! I’d like to introduce you to Ub Attendance
+    - a simple and cost-effective solution for your daily transactions via local mobile payments.
+    Join me and start building your profile.
+    Oh, and did I mention we’ll both get a XAF5000 reward!
+    </string>
+
+    <string name="more_info">
+       Thanks for stopping by our app. We have other apps that are eye catching you could download from the android market.
+        Or better still visit our website by clicking on the link below
+    </string>
+
+    <string name="about_info">
+        UB Attendance is a mobile application that wants to democratize mobile payments by bringing traditional
+        payment methods of debit and credit cards with ease of mobile money. More can be found on our official website by
+        clicking on the link below.
+    </string>
+
+
+
+    //array to get all programmes
+    <string-array name="programme_list">
+        <item>General Electrical Engineering</item>
+        <item>Telecommunication Engineering</item>
+        <item>Power Systems Engineering</item>
+        <item>Software Engineering</item>
+        <item>Networking Engineering</item>
+        <item>General Computer Engineering</item>
+    </string-array>
+
+
+    //array to get all levels
+    <string-array name="level">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+
+
+    <string name="title_activity_lecturer_course">LecturerCourse</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_ascending">Sort Ascending</string>
+    <string name="sort_descending">Sort Descending</string>
+    <string name="clear_sorting">Clear</string>
+    <string name="hiding_row_sample">Hiding 3. Row Sample</string>
+    <string name="showing_row_sample">Showing 3. Row Sample</string>
+    <string name="scroll_to_column_position">Scroll to 15. column position</string>
+    <string name="scroll_to_row_position">Scroll to 5. row position</string>
+    <string name="show_hide_the_column">Showing / Hiding 1. column</string>
+    <string name="table_pagination_details">Page %s, showing items %s - %s.</string>
+
+
+</resources>
