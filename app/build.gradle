@@ -32,5 +32,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     implementation 'io.apptik.widget:multiselectspinner:1.0.12'
-    implementation 'com.itextpdf:itext7-core:7.1.2'
 }

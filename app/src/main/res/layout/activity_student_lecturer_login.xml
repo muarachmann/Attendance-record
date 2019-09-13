@@ -25,7 +25,6 @@
             android:layout_height="wrap_content"
             android:text="@string/student"
             android:layout_margin="20dp"
-            android:onClick="gotoStudent"
             android:layout_gravity="bottom"
             android:background="#80B9"
             android:textColor="#ffffff" />
@@ -36,7 +35,6 @@
             android:layout_height="wrap_content"
             android:text="@string/lecturer"
             android:layout_margin="20dp"
-            android:onClick="gotoLecturer"
             android:layout_gravity="bottom"
             android:background="#2980B9"
             android:textColor="#ffffff" />

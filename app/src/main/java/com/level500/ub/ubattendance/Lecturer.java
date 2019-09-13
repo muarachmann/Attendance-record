@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,14 +30,14 @@ public class Lecturer extends AppCompatActivity {
     private static final String KEY_MESSAGE = "message";
     private static final String KEY_FIRST_NAME = "firstname";
     private static final String KEY_LAST_NAME = "lastname";
-    private static final String KEY_USERNAME = "lectid";
+    private static final String KEY_USERNAME = "matricule";
     private static final String KEY_PASSWORD = "password";
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
 
     private EditText lectText;
     private EditText passText;
-    private String lectId;
+    private String matricule;
     private String password;
     private ProgressDialog pDialog;
 
@@ -52,7 +53,7 @@ public class Lecturer extends AppCompatActivity {
 
     public void lecturerLogin(View view){
 
-        lectId = lectText.getText().toString();
+        matricule = lectText.getText().toString();
         password = passText.getText().toString();
         login();
     }
@@ -60,12 +61,12 @@ public class Lecturer extends AppCompatActivity {
 
     private void login() {
 
-        if ((TextUtils.isEmpty(lectId)) && (TextUtils.isEmpty(password))){
+        if ((TextUtils.isEmpty(matricule)) && (TextUtils.isEmpty(password))){
             Toast.makeText(Lecturer.this, "Invalid credentials please fill in!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (TextUtils.isEmpty(lectId)) {
+        if (TextUtils.isEmpty(matricule)) {
             Toast.makeText(Lecturer.this, "Please enter lecturer matricule", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -76,7 +77,7 @@ public class Lecturer extends AppCompatActivity {
         }
 
         displayLoader();
-        String login_url = "http://192.168.8.100/school/login.php";
+        String login_url = "http://172.20.10.5:3000/api/v1.1/attendance_4pi/lecturers/login";
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest sr = new StringRequest(Request.Method.POST,login_url, new Response.Listener<String>() {
@@ -86,12 +87,12 @@ public class Lecturer extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
 
-                    if(jsonObject.getInt(KEY_STATUS) == 1){
+                    if(jsonObject.getInt(KEY_STATUS) == 200){
                         Toast.makeText(Lecturer.this, jsonObject.getString(KEY_MESSAGE),Toast.LENGTH_LONG).show();
                         String fN =  jsonObject.getString(KEY_FIRST_NAME);
                         String lN =  jsonObject.getString(KEY_LAST_NAME);
                         String tt =  jsonObject.getString("title");
-                        String id =  jsonObject.getString("id");
+                        String id =  jsonObject.getString(KEY_USERNAME);
                         loadDashboard(fN, lN, tt, id);
                     }
                     else {
@@ -100,7 +101,7 @@ public class Lecturer extends AppCompatActivity {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(Lecturer.this, e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(Lecturer.this, "json exception:" + e.getMessage(),Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -109,13 +110,13 @@ public class Lecturer extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 pDialog.dismiss();
                String cause = error.getMessage();
-                Toast.makeText(Lecturer.this, cause,Toast.LENGTH_LONG).show();
+                Toast.makeText(Lecturer.this, "error:" + cause,Toast.LENGTH_LONG).show();
             }
         }){
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("lectid",lectId);
+                params.put("matricule",matricule);
                 params.put("password",password);
                 return params;
             }
@@ -123,6 +124,9 @@ public class Lecturer extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String,String> params = new HashMap<String, String>();
+                String credentials = "webrecord";
+                String base64EncodedCredentials = Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+                params.put("Authorization","Basic "+ base64EncodedCredentials);
                 params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
             }
@@ -149,12 +153,12 @@ public class Lecturer extends AppCompatActivity {
     /**
      * Launch LecturerCourse Activity on Successful Login
      */
-    private void loadDashboard(String fN, String lN, String title, String lectId) {
+    private void loadDashboard(String fN, String lN, String title, String matricule) {
         Intent i = new Intent(getApplicationContext(), LecturerCourse.class);
         i.putExtra("fN", fN);
         i.putExtra("lN", lN);
         i.putExtra("tt", title);
-        i.putExtra("lecID", lectId);
+        i.putExtra("lecID", matricule);
         startActivity(i);
         finish();
     }
